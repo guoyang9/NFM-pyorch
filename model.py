@@ -26,7 +26,7 @@ class NFM(nn.Module):
 
 		self.embeddings = nn.Embedding(num_features, num_factors)
 		self.biases = nn.Embedding(num_features, 1)
-		self.bias_ = torch.tensor([0.0], requires_grad=True).cuda()
+		self.bias_ = nn.Parameter(torch.tensor([0.0]))
 
 		FM_modules = []
 		if self.batch_norm:
@@ -118,7 +118,7 @@ class FM(nn.Module):
 
 		self.embeddings = nn.Embedding(num_features, num_factors)
 		self.biases = nn.Embedding(num_features, 1)
-		self.bias_ = torch.tensor([0.0], requires_grad=True).cuda()
+		self.bias_ = nn.Parameter(torch.tensor([0.0]))
 
 		FM_modules = []
 		if self.batch_norm:
